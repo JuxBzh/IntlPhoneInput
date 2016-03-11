@@ -2,10 +2,13 @@ package net.rimoto.intlphoneinput;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -58,8 +61,36 @@ public class IntlPhoneInput extends RelativeLayout {
      * @param attrs   AttributeSet
      */
     public IntlPhoneInput(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context Context
+     * @param attrs   AttributeSet
+     */
+    public IntlPhoneInput(Context context, AttributeSet attrs, int defStyleAttr ) {
+        super(context, attrs, defStyleAttr);
         init();
+
+        // Custom styleable attributes
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.IntlPhoneInput, defStyleAttr, 0);
+
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        theme.resolveAttribute(android.R.attr.textColorPrimary, typedValue, true);
+
+        int defaultColor = typedValue.data;
+        int textColor = a.getColor(R.styleable.IntlPhoneInput_textColor, defaultColor);
+        mPhoneEdit.setTextColor(textColor);
+
+        theme.resolveAttribute(android.R.attr.textColorTertiary, typedValue, true);
+        defaultColor = typedValue.data;
+        int textColorHint = a.getColor(R.styleable.IntlPhoneInput_textColorHint, defaultColor);
+        mPhoneEdit.setHintTextColor(textColorHint);
+
+        a.recycle();
     }
 
     /**
