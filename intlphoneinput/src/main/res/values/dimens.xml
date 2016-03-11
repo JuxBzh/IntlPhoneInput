@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="component_default_spacing">8dp</dimen>
+    <dimen name="component_default_spacing_small">4dp</dimen>
+
+    <!-- Spinner dimens -->
+    <dimen name="spinner_width">48dp</dimen>
+    <dimen name="spinner_min_height">48dp</dimen>
+    <dimen name="spinner_dropdown_width">350dp</dimen>
+
+    <!-- Spinner item dimens -->
+</resources>

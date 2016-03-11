@@ -7,11 +7,12 @@
 
     <Spinner
         android:id="@+id/intl_phone_edit__country"
-        android:layout_width="40dp"
+        android:layout_width="@dimen/spinner_width"
         android:layout_height="wrap_content"
-        android:dropDownWidth="350dp"
-        android:paddingEnd="1dp"
-        android:paddingRight="1dp"
+        android:minHeight="@dimen/spinner_min_height"
+        android:dropDownWidth="@dimen/spinner_dropdown_width"
+        android:paddingEnd="@dimen/component_default_spacing_small"
+        android:paddingRight="@dimen/component_default_spacing_small"
         tools:ignore="RtlSymmetry" />
 
     <EditText
@@ -19,6 +20,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"
-        android:singleLine="true"
-        android:textSize="24sp" />
+        android:singleLine="true"/>
 </LinearLayout>
