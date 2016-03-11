@@ -31,16 +31,16 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
      */
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        final ViewHolder viewHolder;
+        final DropDownViewHolder viewHolder;
         if (convertView == null) {
-            convertView = mLayoutInflater.inflate(R.layout.item_country, parent, false);
-            viewHolder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.dropdown_item_country, parent, false);
+            viewHolder = new DropDownViewHolder();
             viewHolder.mImageView = (ImageView) convertView.findViewById(R.id.intl_phone_edit__country__item_image);
             viewHolder.mNameView = (TextView) convertView.findViewById(R.id.intl_phone_edit__country__item_name);
             viewHolder.mDialCode = (TextView) convertView.findViewById(R.id.intl_phone_edit__country__item_dialcode);
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder = (DropDownViewHolder) convertView.getTag();
         }
 
         Country country = getItem(position);
@@ -63,10 +63,15 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
         Country country = getItem(position);
 
         if (convertView == null) {
-            convertView = new ImageView(getContext());
+            convertView = mLayoutInflater.inflate(R.layout.spinner_item_country, parent, false);
+
+            ViewHolder viewHolder = new ViewHolder();
+            viewHolder.mImageView = (ImageView) convertView.findViewById(R.id.country_flag);
+            convertView.setTag(viewHolder);
         }
 
-        ((ImageView) convertView).setImageResource(getFlagResource(country));
+        ViewHolder viewHolder = (ViewHolder) convertView.getTag();
+        viewHolder.mImageView.setImageResource(getFlagResource(country));
 
         return convertView;
     }
@@ -83,11 +88,18 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
 
 
     /**
-     * View holder for caching
+     * View holder for caching. Used in {@link #getDropDownView(int, View, ViewGroup)}
      */
-    private static class ViewHolder {
+    private static class DropDownViewHolder {
         public ImageView mImageView;
         public TextView mNameView;
         public TextView mDialCode;
+    }
+
+    /**
+     * View holder for caching. Used in {@link #getView(int, View, ViewGroup)}
+     */
+    private static class ViewHolder {
+        ImageView mImageView;
     }
 }

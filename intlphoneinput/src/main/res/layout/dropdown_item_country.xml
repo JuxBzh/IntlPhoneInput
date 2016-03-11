@@ -9,8 +9,9 @@
 
     <ImageView
         android:id="@+id/intl_phone_edit__country__item_image"
-        android:layout_width="25.5dp"
-        android:layout_height="15dp"
+        android:layout_width="@dimen/flag_size_small"
+        android:layout_height="@dimen/flag_size_small"
+        android:scaleType="fitCenter"
         android:contentDescription="@string/item_image_contentDescription"
         android:src="@drawable/country_il" />
 

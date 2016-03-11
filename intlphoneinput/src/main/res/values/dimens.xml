@@ -9,4 +9,6 @@
     <dimen name="spinner_dropdown_width">350dp</dimen>
 
     <!-- Spinner item dimens -->
+    <dimen name="flag_size_default">32dp</dimen>
+    <dimen name="flag_size_small">24dp</dimen>
 </resources>
