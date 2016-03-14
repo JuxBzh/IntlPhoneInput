@@ -23,8 +23,37 @@ dependencies {
 }
 
 ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'IntlPhoneInput'
+
+    publishedGroupId = 'com.juxbzh.intlphoneinput'
+    libraryName = 'IntlPhoneInput'
+    artifact = 'intlphoneinput'
+
+    libraryDescription = 'A custom view for Android that allows the user to enter his phone number in an elegant and friendly way.'
+
+    siteUrl = 'https://github.com/JuxBzh/IntlPhoneInput'
+    gitUrl = 'https://github.com/JuxBzh/IntlPhoneInput.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'juxbzh'
+    developerName = 'Julien Pedron'
+    developerEmail = 'julien.pedron@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+// Necessary for uploading library to bintray
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+/*
+ext {
     groupId = 'com.juxbzh'
-    versionId = '0.9.3'
+    versionId = '1.0.0'
     gitProjectUrl = "https://github.com/JuxBzh/IntlPhoneInput"
     gitUrl = "https://github.com/JuxBzh/IntlPhoneInput.git"
 }
@@ -98,7 +127,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'IntlPhoneInput'
-        userOrg = "rimoto"
+        userOrg = "juxbzh"
         licenses = ['Apache-2.0']
         publish = true
         publicDownloadNumbers = true
@@ -112,4 +141,4 @@ bintray {
             }
         }
     }
-}
+}*/
