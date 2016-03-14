@@ -23,10 +23,10 @@ dependencies {
 }
 
 ext {
-    groupId = 'net.rimoto'
+    groupId = 'com.juxbzh'
     versionId = '0.9.3'
-    gitProjectUrl = "https://github.com/rimoto/IntlPhoneInput"
-    gitUrl = "https://github.com/rimoto/IntlPhoneInput.git"
+    gitProjectUrl = "https://github.com/JuxBzh/IntlPhoneInput"
+    gitUrl = "https://github.com/JuxBzh/IntlPhoneInput.git"
 }
 
 group = groupId  // Maven Group ID for the artifact
@@ -59,7 +59,7 @@ install {
                 }
                 developers {
                     developer {
-                        name "Rimoto"
+                        name "JuxBzh"
                     }
                 }
                 scm {
