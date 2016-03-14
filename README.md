@@ -19,7 +19,8 @@ country, displays a relevant placeholder and auto formats the number as they typ
 6. Listener available to detect validity change
 7. Automatically detect phone number when information available
 8. Listen to "done" even on the keyboard
-9. More..
+9. Update view style via custom attributes
+10. More..
 
 ## Download
 Download via Gradle or Maven:
