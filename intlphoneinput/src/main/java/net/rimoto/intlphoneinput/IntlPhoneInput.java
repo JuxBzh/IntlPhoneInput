@@ -50,6 +50,7 @@ public class IntlPhoneInput extends RelativeLayout {
     private int mCountryNameColor;
     private int mDialCodeColor;
     private int mTextSize;
+    private PhoneNumberUtil.PhoneNumberType mPhoneNumberType;
 
     /**
      * Constructor
@@ -97,6 +98,15 @@ public class IntlPhoneInput extends RelativeLayout {
         mCountryNameColor = a.getColor(R.styleable.IntlPhoneInput_countryNameColor, defaultTextColor);
         mDialCodeColor = a.getColor(R.styleable.IntlPhoneInput_dialCodeColor, defaultTextColorHint);
         mTextSize = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_textSize, -1);
+        int phoneNumberType = a.getInt(R.styleable.IntlPhoneInput_phoneNumberType, 0);
+        switch (phoneNumberType) {
+            case 1:
+                mPhoneNumberType = PhoneNumberUtil.PhoneNumberType.FIXED_LINE;
+                break;
+            default:
+                mPhoneNumberType = PhoneNumberUtil.PhoneNumberType.MOBILE;
+                break;
+        }
 
         a.recycle();
 
@@ -191,7 +201,7 @@ public class IntlPhoneInput extends RelativeLayout {
      */
     private void setHint() {
         if (mPhoneEdit != null && mSelectedCountry != null && mSelectedCountry.getIso() != null) {
-            Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(mSelectedCountry.getIso(), PhoneNumberUtil.PhoneNumberType.MOBILE);
+            Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(mSelectedCountry.getIso(), mPhoneNumberType);
             if (phoneNumber != null) {
                 mPhoneEdit.setHint(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
             }

@@ -6,5 +6,9 @@
         <attr name="countryNameColor" format="color"/>
         <attr name="dialCodeColor" format="color"/>
         <attr name="textSize" format="dimension"/>
+        <attr name="phoneNumberType" format="enum">
+            <enum name="Mobile" value="0" />
+            <enum name="LandLine" value="1" />
+        </attr>
     </declare-styleable>
 </resources>
