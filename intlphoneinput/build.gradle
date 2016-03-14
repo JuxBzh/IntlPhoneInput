@@ -26,7 +26,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'IntlPhoneInput'
 
-    publishedGroupId = 'com.juxbzh.intlphoneinput'
+    publishedGroupId = 'com.juxbzh'
     libraryName = 'IntlPhoneInput'
     artifact = 'intlphoneinput'
 

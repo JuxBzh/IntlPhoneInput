@@ -14,23 +14,22 @@ country, displays a relevant placeholder and auto formats the number as they typ
 1. Automatically format the number as the user types
 2. Automatically set the input placeholder to an example number for the selected country
 3. Selecting a country from the dropdown will update the dial code in the input
-4. Typing a different dial code will automatically update the displayed flag
-5. Easy embedding as a Custom View
-6. Listener available to detect validity change
-7. Automatically detect phone number when information available
-8. Listen to "done" even on the keyboard
-9. Update view style via custom attributes
-10. More..
+4. Easy embedding as a Custom View
+5. Listener available to detect validity change
+6. Automatically detect phone number when information available
+7. Listen to "done" even on the keyboard
+8. Set view style via custom attributes
+9. More..
 
 ## Download
 Download via Gradle or Maven:
 ```groovy
-compile 'net.rimoto:intlphoneinput:0.9.3'
+compile 'com.juxbzh:intlphoneinput:1.0.0'
 ```
 or Maven:
 ```xml
 <dependency>
-  <groupId>net.rimoto</groupId>
+  <groupId>com.juxbzh</groupId>
   <artifactId>intlphoneinput</artifactId>
   <version>0.9.3</version>
 </dependency>
@@ -90,10 +89,7 @@ if(phoneInputView.isValid()) {
 
 ## Attributions
 
-1. Inspired by [intl-tel-input for jQuery](https://github.com/jackocnr/intl-tel-input)
-2. Flag images from [region-flags](https://github.com/behdad/region-flags)
-3. Original country data from mledoze's [World countries in JSON, CSV and XML](https://github.com/mledoze/countries)
-4. Formatting/validation/example number code from [libphonenumber](https://github.com/googlei18n/libphonenumber)
+1. Forked from [IntlPhoneInput](https://github.com/Rimoto/IntlPhoneInput)
 
 # LICENSE
     Copyright 2015 Rimoto LTD, AlmogBaku

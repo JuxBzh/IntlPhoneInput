@@ -18,6 +18,8 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
      * Constructor
      *
      * @param context Context
+     * @param countryNameColor The color of the country name
+     * @param dialCodeColor The color of the dial code
      */
     public CountrySpinnerAdapter(Context context, int countryNameColor, int dialCodeColor) {
         super(context, 0);

@@ -205,7 +205,10 @@ public class IntlPhoneInput extends RelativeLayout {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             mSelectedCountry = mCountrySpinnerAdapter.getItem(position);
+
+            mPhoneEdit.removeTextChangedListener(mPhoneNumberWatcher);
             mPhoneNumberWatcher = new PhoneNumberWatcher(mSelectedCountry.getIso());
+            mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
 
             setHint();
         }
@@ -235,19 +238,6 @@ public class IntlPhoneInput extends RelativeLayout {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             super.onTextChanged(s, start, before, count);
-            try {
-                String iso = null;
-                if (mSelectedCountry != null) {
-                    iso = mSelectedCountry.getIso();
-                }
-                Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(s.toString(), iso);
-                iso = mPhoneUtil.getRegionCodeForNumber(phoneNumber);
-                if (iso != null) {
-                    int countryIdx = mCountries.indexOfIso(iso);
-                    mCountrySpinner.setSelection(countryIdx);
-                }
-            } catch (NumberParseException ignored) {
-            }
 
             if (mIntlPhoneInputListener != null) {
                 boolean validity = isValid();
@@ -266,14 +256,18 @@ public class IntlPhoneInput extends RelativeLayout {
      */
     public void setNumber(String number) {
         try {
-            String iso = null;
-            if (mSelectedCountry != null) {
-                iso = mSelectedCountry.getIso();
-            }
-            Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(number, iso);
+            Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(number, null);
+            String iso = mPhoneUtil.getRegionCodeForNumber(phoneNumber);
+            if (iso != null) {
+                int countryIdx = mCountries.indexOfIso(iso);
+                mCountrySpinner.setSelection(countryIdx);
+                mSelectedCountry = mCountries.get(countryIdx);
 
-            int countryIdx = mCountries.indexOfIso(mPhoneUtil.getRegionCodeForNumber(phoneNumber));
-            mCountrySpinner.setSelection(countryIdx);
+                mPhoneEdit.removeTextChangedListener(mPhoneNumberWatcher);
+                mPhoneNumberWatcher = new PhoneNumberWatcher(mSelectedCountry.getIso());
+                mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
+                setHint();
+            }
 
             mPhoneEdit.setText(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
         } catch (NumberParseException ignored) {
