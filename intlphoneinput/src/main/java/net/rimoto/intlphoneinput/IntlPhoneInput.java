@@ -187,6 +187,12 @@ public class IntlPhoneInput extends RelativeLayout {
         int defaultIdx = mCountries.indexOfIso(iso);
         mSelectedCountry = mCountries.get(defaultIdx);
         mCountrySpinner.setSelection(defaultIdx);
+
+        mPhoneEdit.removeTextChangedListener(mPhoneNumberWatcher);
+        mPhoneNumberWatcher = new PhoneNumberWatcher(iso);
+        mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
+
+        setHint();
     }
 
     /**
@@ -382,5 +388,18 @@ public class IntlPhoneInput extends RelativeLayout {
                 return false;
             }
         });
+    }
+
+    /**
+     * Show/Hide the country spinner
+     *
+     * @param visible Is the spinner visible?
+     */
+    public void setCountrySpinnerVisible(boolean visible) {
+        if (visible) {
+            mCountrySpinner.setVisibility(VISIBLE);
+        } else {
+            mCountrySpinner.setVisibility(GONE);
+        }
     }
 }

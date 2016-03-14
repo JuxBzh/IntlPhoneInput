@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Default input (Mobile phone number)" />
+        android:text="Default input" />
 
     <net.rimoto.intlphoneinput.IntlPhoneInput
         android:id="@+id/intl_phone_input"
@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Styled via xml (Mobile phone number)" />
+        android:text="Styled via xml" />
 
     <net.rimoto.intlphoneinput.IntlPhoneInput
         android:id="@+id/intl_phone_input2"
@@ -46,4 +46,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:phoneNumberType="LandLine" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country spinner hidden" />
+
+    <net.rimoto.intlphoneinput.IntlPhoneInput
+        android:id="@+id/intl_phone_input4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -12,9 +12,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        IntlPhoneInput phoneInput = (IntlPhoneInput) findViewById(R.id.intl_phone_input);
-
         IntlPhoneInput phoneInput2 = (IntlPhoneInput) findViewById(R.id.intl_phone_input2);
         phoneInput2.setNumber("+32470127865");
+
+        IntlPhoneInput phoneInput4 = (IntlPhoneInput) findViewById(R.id.intl_phone_input4);
+        phoneInput4.setEmptyDefault("FR");
+        phoneInput4.setCountrySpinnerVisible(false);
     }
 }
