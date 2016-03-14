@@ -23,5 +23,6 @@
         app:textColor="#FF0000"
         app:textColorHint="#FFBBBB"
         app:countryNameColor="@color/colorPrimary"
-        app:dialCodeColor="@color/colorAccent"/>
+        app:dialCodeColor="@color/colorAccent"
+        app:textSize="20sp"/>
 </LinearLayout>

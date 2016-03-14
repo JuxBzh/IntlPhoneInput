@@ -5,5 +5,6 @@
         <attr name="textColorHint" format="color"/>
         <attr name="countryNameColor" format="color"/>
         <attr name="dialCodeColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
     </declare-styleable>
 </resources>

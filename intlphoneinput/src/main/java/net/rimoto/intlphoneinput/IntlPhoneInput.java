@@ -44,11 +44,12 @@ public class IntlPhoneInput extends RelativeLayout {
     private CountriesFetcher.CountryList mCountries;
     private IntlPhoneInputListener mIntlPhoneInputListener;
 
-    // Colors
+    // Custom attrs
     private int mTextColor;
     private int mTextHintColor;
     private int mCountryNameColor;
     private int mDialCodeColor;
+    private int mTextSize;
 
     /**
      * Constructor
@@ -95,6 +96,7 @@ public class IntlPhoneInput extends RelativeLayout {
         mTextHintColor = a.getColor(R.styleable.IntlPhoneInput_textColorHint, defaultTextColorHint);
         mCountryNameColor = a.getColor(R.styleable.IntlPhoneInput_countryNameColor, defaultTextColor);
         mDialCodeColor = a.getColor(R.styleable.IntlPhoneInput_dialCodeColor, defaultTextColorHint);
+        mTextSize = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_textSize, -1);
 
         a.recycle();
 
@@ -125,6 +127,13 @@ public class IntlPhoneInput extends RelativeLayout {
         mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
         mPhoneEdit.setTextColor(mTextColor);
         mPhoneEdit.setHintTextColor(mTextHintColor);
+
+        // Set text size
+        if(mTextSize == -1) {
+            mPhoneEdit.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16.0f);
+        } else {
+            mPhoneEdit.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
+        }
 
         setDefault();
     }
