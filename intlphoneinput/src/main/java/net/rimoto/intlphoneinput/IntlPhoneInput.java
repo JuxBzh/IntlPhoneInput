@@ -44,6 +44,12 @@ public class IntlPhoneInput extends RelativeLayout {
     private CountriesFetcher.CountryList mCountries;
     private IntlPhoneInputListener mIntlPhoneInputListener;
 
+    // Colors
+    private int mTextColor;
+    private int mTextHintColor;
+    private int mCountryNameColor;
+    private int mDialCodeColor;
+
     /**
      * Constructor
      *
@@ -72,7 +78,6 @@ public class IntlPhoneInput extends RelativeLayout {
      */
     public IntlPhoneInput(Context context, AttributeSet attrs, int defStyleAttr ) {
         super(context, attrs, defStyleAttr);
-        init();
 
         // Custom styleable attributes
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.IntlPhoneInput, defStyleAttr, 0);
@@ -80,17 +85,20 @@ public class IntlPhoneInput extends RelativeLayout {
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = context.getTheme();
         theme.resolveAttribute(android.R.attr.textColorPrimary, typedValue, true);
+        int defaultTextColor = typedValue.data;
 
-        int defaultColor = typedValue.data;
-        int textColor = a.getColor(R.styleable.IntlPhoneInput_textColor, defaultColor);
-        mPhoneEdit.setTextColor(textColor);
+        theme.resolveAttribute(android.R.attr.textColorHint, typedValue, true);
+        int defaultTextColorHint = typedValue.data;
 
-        theme.resolveAttribute(android.R.attr.textColorTertiary, typedValue, true);
-        defaultColor = typedValue.data;
-        int textColorHint = a.getColor(R.styleable.IntlPhoneInput_textColorHint, defaultColor);
-        mPhoneEdit.setHintTextColor(textColorHint);
+        // Custom colors
+        mTextColor =  a.getColor(R.styleable.IntlPhoneInput_textColor, defaultTextColor);
+        mTextHintColor = a.getColor(R.styleable.IntlPhoneInput_textColorHint, defaultTextColorHint);
+        mCountryNameColor = a.getColor(R.styleable.IntlPhoneInput_countryNameColor, defaultTextColor);
+        mDialCodeColor = a.getColor(R.styleable.IntlPhoneInput_dialCodeColor, defaultTextColorHint);
 
         a.recycle();
+
+        init();
     }
 
     /**
@@ -103,7 +111,7 @@ public class IntlPhoneInput extends RelativeLayout {
          * Country spinner
          */
         mCountrySpinner = (Spinner) findViewById(R.id.intl_phone_edit__country);
-        mCountrySpinnerAdapter = new CountrySpinnerAdapter(getContext());
+        mCountrySpinnerAdapter = new CountrySpinnerAdapter(getContext(), mCountryNameColor, mDialCodeColor);
         mCountrySpinner.setAdapter(mCountrySpinnerAdapter);
 
         mCountries = CountriesFetcher.getCountries(getContext());
@@ -115,6 +123,8 @@ public class IntlPhoneInput extends RelativeLayout {
          */
         mPhoneEdit = (EditText) findViewById(R.id.intl_phone_edit__phone);
         mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
+        mPhoneEdit.setTextColor(mTextColor);
+        mPhoneEdit.setHintTextColor(mTextHintColor);
 
         setDefault();
     }

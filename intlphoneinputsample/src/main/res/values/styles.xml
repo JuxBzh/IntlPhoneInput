@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">#000000</item>
-        <item name="android:textColorTertiary">#CECECE</item>
+        <item name="android:textColorHint">#CECECE</item>
     </style>
 
 </resources>

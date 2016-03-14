@@ -11,14 +11,19 @@ import android.widget.TextView;
 public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
     private LayoutInflater mLayoutInflater;
 
+    private int mCountryNameColor;
+    private int mDialCodeColor;
+
     /**
      * Constructor
      *
      * @param context Context
      */
-    public CountrySpinnerAdapter(Context context) {
+    public CountrySpinnerAdapter(Context context, int countryNameColor, int dialCodeColor) {
         super(context, 0);
         mLayoutInflater = LayoutInflater.from(context);
+        mCountryNameColor = countryNameColor;
+        mDialCodeColor = dialCodeColor;
     }
 
     /**
@@ -37,7 +42,9 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
             viewHolder = new DropDownViewHolder();
             viewHolder.mImageView = (ImageView) convertView.findViewById(R.id.intl_phone_edit__country__item_image);
             viewHolder.mNameView = (TextView) convertView.findViewById(R.id.intl_phone_edit__country__item_name);
+            viewHolder.mNameView.setTextColor(mCountryNameColor);
             viewHolder.mDialCode = (TextView) convertView.findViewById(R.id.intl_phone_edit__country__item_dialcode);
+            viewHolder.mDialCode.setTextColor(mDialCodeColor);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (DropDownViewHolder) convertView.getTag();

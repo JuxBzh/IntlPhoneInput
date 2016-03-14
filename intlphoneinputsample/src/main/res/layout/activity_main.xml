@@ -21,5 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:textColor="#FF0000"
-        app:textColorHint="#FFBBBB"/>
+        app:textColorHint="#FFBBBB"
+        app:countryNameColor="@color/colorPrimary"
+        app:dialCodeColor="@color/colorAccent"/>
 </LinearLayout>
