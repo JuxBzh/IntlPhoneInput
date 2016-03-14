@@ -402,4 +402,13 @@ public class IntlPhoneInput extends RelativeLayout {
             mCountrySpinner.setVisibility(GONE);
         }
     }
+
+    /**
+     * Display an error message attached to the EditText
+     *
+     * @param error The error message
+     */
+    public void setError(String error) {
+        mPhoneEdit.setError(error);
+    }
 }
