@@ -287,6 +287,7 @@ public class IntlPhoneInput extends RelativeLayout {
 
             mPhoneEdit.setText(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
         } catch (NumberParseException ignored) {
+            mPhoneEdit.setText(null);
         }
     }
 

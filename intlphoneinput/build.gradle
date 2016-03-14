@@ -35,7 +35,7 @@ ext {
     siteUrl = 'https://github.com/JuxBzh/IntlPhoneInput'
     gitUrl = 'https://github.com/JuxBzh/IntlPhoneInput.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.3'
 
     developerId = 'juxbzh'
     developerName = 'Julien Pedron'
