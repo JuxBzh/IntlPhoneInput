@@ -14,22 +14,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Default input" />
+        android:text="@string/label_input1" />
 
     <net.rimoto.intlphoneinput.IntlPhoneInput
         android:id="@+id/intl_phone_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/component_default_spacing" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Styled via xml" />
+        android:text="@string/label_input2" />
 
     <net.rimoto.intlphoneinput.IntlPhoneInput
         android:id="@+id/intl_phone_input2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/component_default_spacing"
         app:textColor="#FF0000"
         app:textColorHint="#FFBBBB"
         app:countryNameColor="@color/colorPrimary"
@@ -39,18 +41,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Land line number" />
+        android:text="@string/label_input3" />
 
     <net.rimoto.intlphoneinput.IntlPhoneInput
         android:id="@+id/intl_phone_input3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/component_default_spacing"
         app:phoneNumberType="LandLine" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Country spinner hidden" />
+        android:text="@string/label_input4" />
 
     <net.rimoto.intlphoneinput.IntlPhoneInput
         android:id="@+id/intl_phone_input4"

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">IntlPhoneInputSample</string>
+
+    <string name="label_input1">Default input</string>
+    <string name="label_input2">Styled via xml</string>
+    <string name="label_input3">Land line number</string>
+    <string name="label_input4">Country spinner hidden</string>
 </resources>

@@ -13,6 +13,7 @@
         android:dropDownWidth="@dimen/spinner_dropdown_width"
         android:paddingEnd="@dimen/component_default_spacing_small"
         android:paddingRight="@dimen/component_default_spacing_small"
+        android:background="@null"
         tools:ignore="RtlSymmetry" />
 
     <EditText
