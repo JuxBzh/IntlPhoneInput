@@ -35,7 +35,7 @@ ext {
     siteUrl = 'https://github.com/JuxBzh/IntlPhoneInput'
     gitUrl = 'https://github.com/JuxBzh/IntlPhoneInput.git'
 
-    libraryVersion = '1.0.3'
+    libraryVersion = '1.0.4'
 
     developerId = 'juxbzh'
     developerName = 'Julien Pedron'
@@ -49,96 +49,3 @@ ext {
 // Necessary for uploading library to bintray
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-
-/*
-ext {
-    groupId = 'com.juxbzh'
-    versionId = '1.0.0'
-    gitProjectUrl = "https://github.com/JuxBzh/IntlPhoneInput"
-    gitUrl = "https://github.com/JuxBzh/IntlPhoneInput.git"
-}
-
-group = groupId  // Maven Group ID for the artifact
-version = versionId
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-apply plugin: 'com.github.dcendents.android-maven'
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                groupId groupId
-                artifactId "intlphoneinput"
-
-                // Add your description here
-                name "IntlPhoneInput"
-                description "A custom view for Android that allows the user to enter his phone number in an elegant and friendly way."
-                url gitProjectUrl
-
-                // Set your license
-                licenses {
-                    license {
-                        name "The Apache Software License, Version 2.0"
-                        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
-                    }
-                }
-                developers {
-                    developer {
-                        name "JuxBzh"
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    url gitProjectUrl
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-apply plugin: 'com.jfrog.bintray'
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = 'maven'
-        name = 'IntlPhoneInput'
-        userOrg = "juxbzh"
-        licenses = ['Apache-2.0']
-        publish = true
-        publicDownloadNumbers = true
-        vcsUrl = gitUrl
-        version {
-            name = versionId
-            released  = new Date()
-            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-            gpg {
-                sign = true
-            }
-        }
-    }
-}*/
