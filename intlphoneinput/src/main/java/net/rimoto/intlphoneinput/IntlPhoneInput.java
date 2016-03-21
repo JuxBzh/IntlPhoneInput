@@ -272,7 +272,14 @@ public class IntlPhoneInput extends RelativeLayout {
      */
     public void setNumber(String number) {
         try {
-            Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(number, null);
+            String defaultCountry;
+            if (mSelectedCountry != null) {
+                defaultCountry = mSelectedCountry.getIso();
+            } else {
+                defaultCountry = DEFAULT_COUNTRY;
+            }
+
+            Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(number, defaultCountry);
             String iso = mPhoneUtil.getRegionCodeForNumber(phoneNumber);
             if (iso != null) {
                 int countryIdx = mCountries.indexOfIso(iso);
