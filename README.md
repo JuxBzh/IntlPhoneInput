@@ -26,14 +26,14 @@ Features added in this version
 ## Download
 Download via Gradle or Maven:
 ```groovy
-compile 'com.juxbzh:intlphoneinput:1.0.4'
+compile 'com.juxbzh:intlphoneinput:1.0.6'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.juxbzh</groupId>
   <artifactId>intlphoneinput</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.6</version>
 </dependency>
 ```
 
