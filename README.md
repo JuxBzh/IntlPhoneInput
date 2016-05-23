@@ -1,16 +1,13 @@
 # International Phone Input #
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IntlPhoneInput-green.svg?style=true)](https://android-arsenal.com/details/1/2976)
+A fork of the [IntlPhoneInput](https://github.com/Rimoto/IntlPhoneInput) library by RIMOTO
 
 ## What is it?
 **IntlNumberInput** is a custom view for Android that allows the user to enter his phone number in an
 elegant and friendly way. It adds a flag dropdown to any input, automatically detects the user's
 country, displays a relevant placeholder and auto formats the number as they type.
 
-![IntlPhoneInput](gif-animation.gif) <br />
-***Full Demo Video - https://youtu.be/vDL6gBtltng ***
-
-
 ## Features
+Features from the original version
 1. Automatically format the number as the user types
 2. Automatically set the input placeholder to an example number for the selected country
 3. Selecting a country from the dropdown will update the dial code in the input
@@ -18,8 +15,13 @@ country, displays a relevant placeholder and auto formats the number as they typ
 5. Listener available to detect validity change
 6. Automatically detect phone number when information available
 7. Listen to "done" even on the keyboard
-8. Set view style via custom attributes
-9. More..
+
+Features added in this version
+1. Set view style using custom XML attributes
+2. Custom error field
+3. Support for mobile and landline phone numbers
+4. Possibility to hide the country spinner (to benefit phone number validation and formatting for a single country)
+
 
 ## Download
 Download via Gradle or Maven:
@@ -59,49 +61,16 @@ if(phoneInputView.isValid()) {
 }
 ```
 
-## Public methods
-
-1. `boolean isValid()`
-1. `void setEnabled(boolean enabled)`
-2. `void setOnValidityChange(IntlPhoneInputListener listener)`
-
-    ```java
-    public interface IntlPhoneInputListener {
-      void done(View view, boolean isValid);
-    }
-    ```
-    
-    This simple structure allows you to use lambda expression! (with [retrolambda](https://github.com/orfjackal/retrolambda)):
-    ```
-    mIntlPhoneInput.setOnValidityChange((view, isValid) -> {
-      if(isValid) {...}
-    }
-    ```
-  
-3. `void setOnKeyboardDone(IntlPhoneInputListener listener)`
-4. `void hideKeyboard()`
-5. `void setDefault()` - Set default number: if can detect line by permission(requires `android.permission.READ_PHONE_STATE`), else- example number for country as hint(detect by SIM info if has permission, else by locale). This method automatically invoked on init
-6. `void setEmptyDeafult(String iso)` - Set example hint for iso
-7. `void setEmptyDefault()` - Set example hint by locale
-8. `void setNumber(String number)` - Set number, number in [E.164](https://en.wikipedia.org/wiki/E.164) format(i.e. `+972501234567`)
-9. `String getNumber()` or `String getText()` - Get number in [E.164](https://en.wikipedia.org/wiki/E.164) format
-
-
-## Attributions
-
-1. Forked from [IntlPhoneInput](https://github.com/Rimoto/IntlPhoneInput)
-
-# LICENSE
-    Copyright 2015 Rimoto LTD, AlmogBaku
-    
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    
-      http://www.apache.org/licenses/LICENSE-2.0
-    
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+4. Customize appearance via XML
+```xml
+<net.rimoto.intlphoneinput.IntlPhoneInput
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/component_default_spacing"
+    app:textColor="#FF0000"
+    app:textColorHint="#FFBBBB"
+    app:countryNameColor="@color/colorPrimary"
+    app:dialCodeColor="@color/colorAccent"
+    app:textSize="20sp"/>
+```
+For more details see attached sample project
