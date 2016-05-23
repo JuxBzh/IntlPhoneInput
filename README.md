@@ -24,7 +24,7 @@ Features added in this version
 
 
 ## Download
-Download via Gradle or Maven:
+Download via Gradle:
 ```groovy
 compile 'com.juxbzh:intlphoneinput:1.0.6'
 ```
